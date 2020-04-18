@@ -34,3 +34,5 @@ config.ini
 /deps
 pkg
 /.clang-tidy
+/.clangd
+/compile_commands.json
