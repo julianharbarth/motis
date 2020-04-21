@@ -81,8 +81,10 @@ msg_ptr rt_handler::update(msg_ptr const& msg) {
         }
 
         case ris::MessageUnion_AdditionMessage: {
-          auto result = additional_service_builder(s).build_additional_train(
-              reinterpret_cast<ris::AdditionMessage const*>(c));
+          auto result =
+              additional_service_builder(s, update_builder_)
+                  .build_additional_train(
+                      reinterpret_cast<ris::AdditionMessage const*>(c));
           stats_.count_additional(result);
           break;
         }
