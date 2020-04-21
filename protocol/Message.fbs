@@ -167,7 +167,6 @@ union MsgContent {
   motis.routing.RoutingResponse,
   motis.rt.RtEventInfo,
   motis.rt.RtDelayUpdate,
-  motis.rt.RtCancelUpdate,
   motis.rt.RtTrackUpdate,
   motis.rt.RtFreeTextUpdate,
   motis.rt.RtRerouteUpdate,
