@@ -10,6 +10,7 @@
 #include "motis/rt/delay_propagator.h"
 #include "motis/rt/reroute.h"
 #include "motis/rt/statistics.h"
+#include "motis/rt/update_msg_builder.h"
 
 namespace motis::rt {
 
@@ -37,6 +38,7 @@ private:
 
   schedule& sched_;
   delay_propagator propagator_;
+  update_msg_builder update_builder_;
   statistics stats_;
   std::vector<track_info> track_events_;
   std::vector<free_texts> free_text_events_;
