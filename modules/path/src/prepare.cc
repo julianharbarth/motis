@@ -39,6 +39,8 @@ using namespace motis;
 using namespace motis::loader;
 using namespace motis::path;
 
+namespace motis::path {  // namespace motis::path
+
 struct prepare_settings : public conf::configuration {
   prepare_settings() : configuration("Prepare Options", "") {
     param(schedule_, "schedule", "/path/to/rohdaten");
@@ -107,7 +109,7 @@ void filter_sequences(std::vector<std::string> const& filters,
   }
 }
 
-int main(int argc, char const** argv) {
+int run_path_prepare(int argc, char const** argv) {
   prepare_settings opt;
 
   try {
@@ -177,4 +179,19 @@ int main(int argc, char const** argv) {
   builder.finish();
 
   std::cout << std::endl;
+  return 0;
+}
+
+}  // namespace motis::path
+
+int main(int argc, char const** argv) {
+  try {
+    return motis::path::run_path_prepare(argc, argv);
+  } catch (std::exception const& e) {
+    LOG(ml::emrg) << "exception caught: " << e.what();
+    return 1;
+  } catch (...) {
+    LOG(ml::emrg) << "unknown exception caught";
+    return 1;
+  }
 }
